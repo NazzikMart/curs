@@ -7,7 +7,7 @@ export default function LeftMenu() {
   return (
     <div className="LeftMenu">
       <ChatsName />
-      <ButtonShowChats />
+      {/* <ButtonShowChats /> */}
     </div>
   );
 }
