@@ -35,7 +35,7 @@ export default function ChatsName() {
           marginLeft: "70px",
         }}
       />
-      {state}
+      <h1 className="showBurgerMenu">{state}</h1>
     </div>
   );
 }
