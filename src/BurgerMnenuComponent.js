@@ -1,7 +1,16 @@
 import React from "react";
 import "./App.css";
+import { useState } from "react";
+import AddUserForm from "./AddUserForm";
 
 export default function BurgerMnenuComponent() {
+  function closeForm() {
+    setState("");
+  }
+  const [state, setState] = useState("");
+  function addForm() {
+    setState(<AddUserForm closeAddFormUser={closeForm} />);
+  }
   return (
     <div className="+">
       <nav
@@ -12,7 +21,9 @@ export default function BurgerMnenuComponent() {
       >
         <ul>
           <li>
-            <a href="#">Додати чат</a>
+            <a href="#" onClick={addForm}>
+              Додати чат
+            </a>
           </li>
           <li>
             <a href="#">Сповіщення</a>
@@ -25,6 +36,7 @@ export default function BurgerMnenuComponent() {
           </li>
         </ul>
       </nav>
+      {state}
     </div>
   );
 }
