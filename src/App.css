@@ -413,3 +413,7 @@ form {
 .userAdd {
   padding: 60px;
 }
+
+.bi-x {
+  margin-left: -10px;
+}
