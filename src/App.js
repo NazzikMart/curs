@@ -10,9 +10,9 @@ function App() {
   const [state, setState] = useState(0);
   return (
     <div className="App ">
-      <p className="logo">Dawnstar Messenger</p>
       <div className="chatsLists"></div>
       <ContentChat />
+      {/* <p className="logo">Dawnstar Messenger</p> */}
     </div>
   );
 }

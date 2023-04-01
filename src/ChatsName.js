@@ -1,7 +1,9 @@
 import React from "react";
 import "./App.css";
-import BurgerMnenuComponent from "./BurgerMnenuComponent";
+
 import { useState } from "react";
+import UserComponent from "./UserComponent";
+import AddUserForm from "./AddUserForm";
 
 export default function ChatsName() {
   const [state, setState] = useState("");
@@ -9,7 +11,7 @@ export default function ChatsName() {
 
   function handleBurger() {
     console.log("burger");
-    setState(<BurgerMnenuComponent />);
+    // setState(<BurgerMnenuComponent />);
     setToogle(!toogle);
 
     console.log(toogle);
@@ -17,61 +19,42 @@ export default function ChatsName() {
       setState("");
     }
   }
-
-  if (toogle === false) {
-    return (
-      <div className="ChatsName">
-        <header className="burger" onClick={handleBurger}>
-          <div class="menu-btn">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="36"
-              height="36"
-              fill="currentColor"
-              class="bi bi-x"
-              viewBox="0 0 16 16"
-            >
-              <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-            </svg>
-          </div>
-        </header>
-        <input
-          type="text"
-          className="form-control inputItemsInfoChatHeader"
-          id="inputPassword2"
-          placeholder="Пошук"
-          style={{
-            width: "310px",
-            position: "absolute",
-            marginLeft: "70px",
-          }}
-        />
-        <h1 className="showBurgerMenu">{state}</h1>
-      </div>
-    );
-  } else if (toogle === true) {
-    return (
-      <div className="ChatsName">
-        <header className="burger" onClick={handleBurger}>
-          <div class="menu-btn">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </header>
-        <input
-          type="text"
-          className="form-control inputItemsInfoChatHeader"
-          id="inputPassword2"
-          placeholder="Пошук"
-          style={{
-            width: "310px",
-            position: "absolute",
-            marginLeft: "70px",
-          }}
-        />
-        {/* <h1 className="showBurgerMenu">{state}</h1> */}
-      </div>
-    );
+  function closeForm() {
+    setState("");
   }
+  function addForm() {
+    setState(<AddUserForm closeAddFormUser={closeForm} />);
+  }
+
+  return (
+    <div className="ChatsName">
+      <input
+        className="form-input"
+        id="txt-input"
+        type="text"
+        placeholder="@UserName"
+        required
+      />
+      <li>
+        <a href="#" onClick={addForm}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="26"
+            height="26"
+            fill="currentColor"
+            className="bi bi-plus "
+            viewBox="0 0 16 16"
+          >
+            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+          </svg>{" "}
+        </a>
+      </li>
+
+      {/* <h1 className="showBurgerMenu">{state}</h1> */}
+
+      <UserComponent />
+
+      {state}
+    </div>
+  );
 }
