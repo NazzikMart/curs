@@ -1,8 +1,8 @@
 import React from "react";
-import "./App.css";
-import LeftMenu from "./LeftMenu";
-import InfoChatHeader from "./InfoChatHeader";
-import InfoChatsStatistik from "./InfoChatsStatistik";
+import "../App.css";
+import LeftMenu from "../LeftMenu/LeftMenu";
+import InfoChatHeader from "../InfoChatHeader/InfoChatHeader";
+import InfoChatsStatistik from "../InfoChatsStatistik/InfoChatsStatistik";
 
 export default function ContentChat() {
   return (

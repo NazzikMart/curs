@@ -1,15 +1,21 @@
 import React from "react";
-import "./App.css";
+import "../App.css";
 import { useState } from "react";
-import InfoChatHeader from "./InfoChatHeader";
-import MessageUserChatAdd from "./MessageUserChatAdd";
+import InfoChatHeader from "../InfoChatHeader/InfoChatHeader";
+import MessageUserChatAdd from "../MessageUserChatAdd/MessageUserChatAdd";
 
 export default function UserComponent(props) {
   const [state, setState] = useState(false);
   const [infoname, setInfoName] = useState();
   function addChatUser() {
-    setState(!state);
+    setState(true);
   }
+  let usersnew = document.querySelectorAll(".chat__user");
+  usersnew.forEach((card) => {
+    card.addEventListener("click", () => {
+      setInfoName(card.querySelector("h4").textContent);
+    });
+  });
 
   const users = [
     { id: 1, name: "John Doe", message: "Hello, how are you doing today?" },
@@ -35,6 +41,7 @@ export default function UserComponent(props) {
             </div>
           );
         })}
+        <p className="noMessageUser">Почніть чат</p>
       </div>
     );
   } else {
@@ -56,7 +63,7 @@ export default function UserComponent(props) {
             </div>
           );
         })}
-        <InfoChatHeader />
+        <InfoChatHeader name={<p className="nameUserChatUser">{infoname}</p>} />
         <MessageUserChatAdd />
       </div>
     );

@@ -1,10 +1,9 @@
-import logo from "./logo.svg";
 import "./App.css";
-import ContentChat from "./ContentChat";
+import ContentChat from "./ContentChat/ContentChat";
 import { useState } from "react";
 
-import ChatsList from "./ChatsList";
-import Bell from "./Bell";
+// import ChatsList from "./ChatsList/ChatsList";
+// import Bell from "./Bell/Bell";
 
 function App() {
   const [state, setState] = useState(0);

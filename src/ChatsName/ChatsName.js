@@ -1,9 +1,9 @@
 import React from "react";
-import "./App.css";
+import "../App.css";
 
 import { useState } from "react";
-import UserComponent from "./UserComponent";
-import AddUserForm from "./AddUserForm";
+import UserComponent from "../UserComponent/UserComponent";
+import AddUserForm from "../AddUserForm/AddUserForm";
 
 export default function ChatsName() {
   const [state, setState] = useState("");
